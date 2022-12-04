@@ -11,8 +11,7 @@ def get_common_letter(a:str, b:str) -> str:
         if i in b:
             return i
 
-def get_common_item() -> [str]:
-    item = get_items()
+def get_common_item(item:[[str]]) -> [str]:
     common_item = []
     for i in item:
         common_item.append(get_common_letter(i[:len(i)//2], i[len(i)//2:]))
@@ -42,8 +41,7 @@ def get_common_letters(a:str, b:str) -> [str]:
             letters += i
     return letters
 
-def get_badge() -> [str]:
-    item = get_items()
+def get_badge(item:[[str]]) -> [str]:
     groups = []
     common_items = []
     for i in range(0, len(item), 3):
@@ -53,7 +51,8 @@ def get_badge() -> [str]:
         common_items.append(get_common_letter(x, y))
     return common_items
 
+items = get_items()
 # part 1
-print(get_sum_priorities(get_common_item()))
+print(get_sum_priorities(get_common_item(items)))
 # part 2
-print(get_sum_priorities(get_badge()))
+print(get_sum_priorities(get_badge(items)))
